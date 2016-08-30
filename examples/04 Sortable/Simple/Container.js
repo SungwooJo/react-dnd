@@ -5,11 +5,12 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 const style = {
-  width: 400
+  width: 325,
+  display: 'inline-block',
+  margin: '0 0 0 100px',
 };
 
-@DragDropContext(HTML5Backend)
-export default class Container extends Component {
+class Container extends Component {
   constructor(props) {
     super(props);
     this.moveCard = this.moveCard.bind(this);
@@ -55,19 +56,22 @@ export default class Container extends Component {
 
   render() {
     const { cards } = this.state;
-
     return (
       <div style={style}>
         {cards.map((card, i) => {
           return (
-            <Card key={card.id}
-                  index={i}
-                  id={card.id}
-                  text={card.text}
-                  moveCard={this.moveCard} />
+            <Card
+              key={card.id}
+              index={i}
+              id={card.id}
+              text={card.text}
+              moveCard={this.moveCard}
+            />
           );
         })}
       </div>
     );
   }
 }
+
+export default DragDropContext(HTML5Backend)(Container);

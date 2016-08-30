@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Container from './Container';
+import SwjoContainer from './SwjoContainer';
 
 export default class SortableSimple extends Component {
   render() {
@@ -11,7 +12,7 @@ export default class SortableSimple extends Component {
         <p>
           It is easy to implement a sortable interface with React DnD. Just make the same component both a drag source and a drop target, and reorder the data in the <code>hover</code> handler.
         </p>
-        <Container />
+        <SwjoContainer />
       </div>
     );
   }
